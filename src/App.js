@@ -6,11 +6,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      {/* <CharacterIndexContainer /> */}
       <Router>
         <Routes>
-          <Route exact path="/:characterId" element={<CharacterShowContainer/>} />
-          <Route exact path="/" element={<CharacterIndexContainer/>} />
+          <Route path="/:characterId" element={<CharacterShowContainer/>} />
+          <Route path="/" element={<CharacterIndexContainer/>} />
         </Routes>
       </Router>
     </div>
