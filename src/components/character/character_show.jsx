@@ -7,7 +7,9 @@ class CharacterShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchCharacter(this.props.match.params.characterId)
+    if (this.props.match.params.characterId < 827) {
+      this.props.fetchCharacter(this.props.match.params.characterId)
+    }
   }
 
   componentDidUpdate(prevState, prevProps) {
@@ -31,7 +33,7 @@ class CharacterShow extends React.Component {
     } else {
       locationInfo =
       <div>
-        Loading location information
+        No information found.
       </div>
     }
     return locationInfo;
@@ -43,15 +45,20 @@ class CharacterShow extends React.Component {
 
     return (
       <div>
-        <div>
-          <img src={character.image} alt={character.name} />
-          <h2>{character.name}</h2>
-          <p>Status: {character.status}</p>
-          <p>Species: {character.species}</p>
-          <h3>Location:</h3>
-          {this.renderLocation()}
-        </div>
-        
+        {this.props.match.params.characterId < 827 ?
+          <div>
+            <img src={character.image} alt={character.name} />
+            <h2>{character.name}</h2>
+            <p>Status: {character.status}</p>
+            <p>Species: {character.species}</p>
+            <h3>Location:</h3>
+            {this.renderLocation()}
+          </div>
+          :
+          <div>
+            No character with that ID, please try again with ID #1-826
+          </div>
+        }
       </div>
     )
   }
