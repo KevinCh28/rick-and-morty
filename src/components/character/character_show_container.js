@@ -12,6 +12,7 @@ export function withRouter(Children) {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
     character: state.characters,
     location: state.locations,

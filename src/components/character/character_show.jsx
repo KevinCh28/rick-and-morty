@@ -7,7 +7,7 @@ class CharacterShow extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.match.params.characterId < 827) {
+    if (this.props.match.params.characterId < 827 && this.props.match.params.characterId > 0) {
       this.props.fetchCharacter(this.props.match.params.characterId)
     }
   }
@@ -45,7 +45,7 @@ class CharacterShow extends React.Component {
 
     return (
       <div>
-        {this.props.match.params.characterId < 827 ?
+        {this.props.match.params.characterId < 827 && this.props.match.params.characterId > 0 ?
           <div>
             <img src={character.image} alt={character.name} />
             <h2>{character.name}</h2>
